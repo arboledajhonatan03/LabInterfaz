@@ -393,10 +393,7 @@ public class Buscaminas {
 	 * Metodo dar del atributo perdio
 	 * @return boolean el atributo
 	 */
-	public boolean darPerdio() throws PerdioException{
-		if (perdio) {
-			throw new PerdioException("Destapaste la casilla incorrecta... Perdiste.");
-		}
+	public boolean darPerdio(){
 		return perdio;
 		
 	}

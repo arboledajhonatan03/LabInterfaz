@@ -1,6 +1,7 @@
 package view;
 import javax.swing.JOptionPane;
 
+import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
@@ -63,15 +64,12 @@ public class WindowController {
 					if(b1.getText().equals('*')) {
 						b.setPerdio(true);
 					}
-					try {
-						if(b.darPerdio()) {
-						JOptionPane.showMessageDialog(null, "Perdiste!");
-						stage.close();
-						}
-					} catch (PerdioException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
+				});
+				if(b.darPerdio()) {
+					stage.close();
+				}
+				b3.setOnAction(e ->{
+					root.setCenter(resolver());
 				});
 				
 			}
@@ -84,10 +82,19 @@ public class WindowController {
 		});
 	}
 	
-	public void resolver() {
-		for (int i = 0; i < array.length; i++) {
-			
+	public GridPane resolver() {
+		GridPane root3 = new GridPane();
+		for (int i = 0; i < b.darCasillas().length; i++) {
+			for (int j = 0; j < b.darCasillas()[i].length; j++) {
+					Button boton = new Button();
+					boton.setText(""+b.darCasillas()[i][j].mostrarValorCasilla());
+					root3.add(boton, i, j);
+			}
 		}
+		return root3;
 	}
 	
+	public void salir(ActionEvent e) {
+		stage.close();
+	}
 }
