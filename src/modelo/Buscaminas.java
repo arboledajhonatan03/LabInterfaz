@@ -382,7 +382,7 @@ public class Buscaminas {
 				if(casillas[i][j].esMina()==false && casillas[i][j].darValor()>0 && casillas[i][j].darSeleccionada()==false) {
 					casillas[i][j].destapar();
 					estaEs = true;
-					msg = "La casilla que se destapo fue de la fila " + i + " y columna " + j;
+					msg =  i + "," + j;
 				}
 			}
 		}
